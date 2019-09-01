@@ -61,9 +61,11 @@ public class ContactActivity extends AppCompatActivity
         textAddress.setOnEditorActionListener( new TextView.OnEditorActionListener() {
             @Override public boolean onEditorAction( TextView v , int actionId , KeyEvent event )
             {
-                if (actionId == EditorInfo.IME_ACTION_DONE)
+                if (actionId == EditorInfo.IME_ACTION_NEXT)
                 {
-                    sendData();
+                    if(uriPicture == null)
+                        browsePicture();
+                    else sendData();
                 }
                 return false;
             }
@@ -106,7 +108,6 @@ public class ContactActivity extends AppCompatActivity
         i.putExtras(  bnd );
         setResult( RESULT_OK, i);
         finishAfterTransition();
-
     }
 
     @Override protected void onActivityResult( int requestCode , int resultCode , @Nullable Intent data )

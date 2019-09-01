@@ -25,7 +25,8 @@
 			android:layout_height = "wrap_content"
 			android:hint = "@string/titleFirstName"
 			android:imeOptions = "actionNext"
-			android:singleLine = "true"/>
+			android:inputType = "textPersonName|textCapWords|textCapCharacters"
+			android:singleLine = "true" />
 	</com.google.android.material.textfield.TextInputLayout>
 
 	<com.google.android.material.textfield.TextInputLayout
@@ -45,8 +46,9 @@
 			android:layout_width = "match_parent"
 			android:layout_height = "wrap_content"
 			android:hint = "@string/titleLastName"
-			android:imeOptions = "actionDone"
-			android:singleLine = "true"/>
+			android:imeOptions = "actionNext"
+			android:inputType = "textPersonName|textCapWords|textCapCharacters"
+			android:singleLine = "true" />
 	</com.google.android.material.textfield.TextInputLayout>
 
 	<com.google.android.material.textfield.TextInputLayout
@@ -66,8 +68,9 @@
 			android:layout_width = "match_parent"
 			android:layout_height = "wrap_content"
 			android:hint = "@string/titlePhoneNumber"
-			android:imeOptions = "actionDone"
-			android:singleLine = "true"/>
+			android:imeOptions = "actionNext"
+			android:inputType = "phone"
+			android:singleLine = "true" />
 	</com.google.android.material.textfield.TextInputLayout>
 
 	<com.google.android.material.textfield.TextInputLayout
@@ -87,8 +90,9 @@
 			android:layout_width = "match_parent"
 			android:layout_height = "wrap_content"
 			android:hint = "@string/titleAddress"
-			android:imeOptions = "actionDone"
-			android:singleLine = "true"/>
+			android:imeOptions = "actionNext"
+			android:inputType = "text"
+			android:singleLine = "true" />
 	</com.google.android.material.textfield.TextInputLayout>
 
 	<androidx.constraintlayout.widget.ConstraintLayout

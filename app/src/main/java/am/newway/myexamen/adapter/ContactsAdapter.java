@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
+import java.util.Objects;
 
 import am.newway.myexamen.App;
 import am.newway.myexamen.MainActivity;
@@ -33,9 +34,9 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
         this.context = context;
     }
 
-    public Contacts getItem(int position)
+    private Contacts getItem( int position )
     {
-        return list.get(position);
+        return getItemCount() > 0 && position < getItemCount() ? list.get(position) : null;
     }
 
     public void addContact( Contacts contact)
@@ -46,11 +47,11 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
 
     private void removeTasks( final int position )
     {
+        final Contacts con = getItem(position);
         AsyncTask.execute( new Runnable() {
             @Override
             public void run() {
-                if(list.size() > 0 && position < list.size())
-                App.getInstance().getDatabase().getContactsDao().delete(list.get(position));
+                App.getInstance().getDatabase().getContactsDao().delete(con);
             }
         });
         list.remove( position );
@@ -69,7 +70,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
 
     @Override public void onBindViewHolder( @NonNull MyViewHolder myViewHolder , int i )
     {
-        myViewHolder.bind( list.get( i ) );
+        myViewHolder.bind( Objects.requireNonNull( getItem( i ) ) );
     }
 
     @Override public int getItemCount()
